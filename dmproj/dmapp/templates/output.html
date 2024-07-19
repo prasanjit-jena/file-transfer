@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Output File</title>
+</head>
+<body>
+    <h1>Output Generated</h1>
+    <div>
+        {{ plot_html|safe }}
+    </div>
+    <h2> Output Data | <a href="{% url 'download_output_file' %}">Download Output File</a></h2>
+    <div>
+        {{ plot_data|safe }}
+    </div>
+    <br>
+    {% comment %} <a href="{% url 'download_output_file' %}">Download Output File</a> {% endcomment %}
+</body>
+</html>
