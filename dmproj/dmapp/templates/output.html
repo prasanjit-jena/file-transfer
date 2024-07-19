@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <title>Output File</title>
@@ -14,5 +14,37 @@
     </div>
     <br>
     {% comment %} <a href="{% url 'download_output_file' %}">Download Output File</a> {% endcomment %}
+{% comment %} </body>
+</html> {% endcomment %} 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Output File</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .table-container {
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .table-bordered th, .table-bordered td {
+            border: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Output Generated</h1>
+        <div>
+            {{ plot_html|safe }}
+        </div>
+        <h2 class="mt-4">Output Data | <a href="{% url 'download_output_file' %}">Download Output File</a></h2>
+        <div class="table-container">
+            {{ plot_data|safe }}
+        </div>
+        <br>
+    </div>
 </body>
 </html>

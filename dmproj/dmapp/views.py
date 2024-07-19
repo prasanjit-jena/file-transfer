@@ -113,7 +113,7 @@ def generate_output(request):
     plot_data.to_excel(plot_data_output_path, index=False)
     request.session['plot_data_output_path'] = plot_data_output_path
 
-    return render(request, 'output.html', {'plot_html': plot_html, 'plot_data': plot_data.head(1000).to_html(classes='table table-bordered')})
+    return render(request, 'output.html', {'plot_html': plot_html, 'plot_data': plot_data.head(1000).to_html(index=False,classes='table table-bordered table-hover')})
 
 
 def download_output_file(request):
