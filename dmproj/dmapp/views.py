@@ -102,8 +102,12 @@ def generate_output(request):
 
     # Generate a plot
     plot_data = pd.read_excel(output_file_path)
-    # print(plot_data)
-    fig = px.bar(plot_data, x='clubbed_name', y='Value', title='Bar Graph', labels={'Value': 'Value'}, color_discrete_sequence=['blue','red','green'])
+    # Aggregate the data to get the total value for each clubbed_name
+    aggregated_data = plot_data.groupby('clubbed_name', as_index=False)['Value'].sum()
+
+    # Create a bar plot
+    fig = px.bar(aggregated_data, x='clubbed_name', y='Value', title='Total Value by Insurer', labels={'Value': 'Total Value'}, color_discrete_sequence=['blue'])
+    # fig = px.bar(plot_data, x='clubbed_name', y='Value', title='Bar Graph', labels={'Value': 'Value'}, color_discrete_sequence=['blue','red','green'])
 
     # Convert Plotly figure to HTML
     plot_html = fig.to_html(full_html=False)
