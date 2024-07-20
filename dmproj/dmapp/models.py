@@ -12,7 +12,7 @@ class ProcessedData(models.Model):
         return f"{self.year} - {self.month} - {self.category} - {self.clubbed_name} - {self.product} - {self.value}"
 
     class Meta:
-        ordering=['-id']
+        # ordering=['-id']
         verbose_name = 'Output Data'    
         verbose_name_plural = "Output Data's"
 
